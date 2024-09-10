@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "image":"/images/bodybuilding.png",
+        "title":"Body Building",
+        "description":"Analyze body metrics in graphs; track progress in muscle growth, fat loss, and strength gains."
+    },
+    {
+        "id":2,
+        "image":"/images/musclegain.png",
+        "title":"Muscle Gain",
+        "description":"Track muscle gain and weight loss through graphs; monitor progress and adjust workouts accordingly."
+    },
+    {
+        "id":3,
+        "image":"/images/weightloss.png",
+        "title":"weight loss",
+        "description":"Examine weight loss graphs to track progress; adjust diet and exercise based on trends."
+    }
+]
