@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FaDumbbell } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -7,8 +8,7 @@ const navItems = [
   { name: 'About', href: '/about' },
   { name: 'Courses', href: '/course' },
   { name: 'Pricing', href: '/pricing' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Blog', href: '/blog' }
+  { name: 'Gallery', href: '/gallery' }
 ];
 
 const Header = () => {

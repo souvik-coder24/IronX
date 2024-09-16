@@ -1,0 +1,12 @@
+.customHeading {
+    margin: 40px;
+    font-size: 160px;
+    text-align: center;
+    display: block;
+    color: #2c234d;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    -webkit-text-stroke: 1px #f6f7f8;
+    -webkit-text-fill-color: transparent;
+}

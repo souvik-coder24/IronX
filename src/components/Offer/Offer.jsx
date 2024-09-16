@@ -1,5 +1,7 @@
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 import data from '../../Data/offer.json';
+import Button from '../Button/Button';
 import styles from './Offer.module.css';
 
 const Offer = () => {
@@ -48,6 +50,13 @@ const Offer = () => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="flex justify-center m-12">
+        <Link to={'/search'}>
+        <Button>
+          Explore Exercise
+        </Button>
+        </Link>
       </div>
     </div>
   );
