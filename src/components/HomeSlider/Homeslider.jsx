@@ -1,17 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import home1 from '../../../public/images/Home-1.png';
+import IronX from '../../assets/video/IronX.mp4'
 import styles from './Homeslider.module.css';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
 
 const Homeslider = () => {
+  const [isVideoReady, setIsVideoReady] = useState(false);
+
+  const handleVideoLoad = () => {
+    setIsVideoReady(true);
+  };
+
   return (
     <div className="relative w-full h-screen overflow-hidden flex flex-col items-start justify-center text-left p-8">
-      <img
-        src={home1}
-        alt="Background"
-        className="fixed inset-0 object-cover w-full h-full"
+      {!isVideoReady && (
+        <img
+          src={home1}
+          alt="Background"
+          className="fixed inset-0 object-cover w-full h-full"
+          style={{ zIndex: -1 }}
+        />
+      )}
+      <video
+        src={IronX}
+        autoPlay
+        loop
+        muted
+        className={`fixed inset-0 object-cover w-full h-full ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
+        onLoadedData={handleVideoLoad}
         style={{ zIndex: -1 }}
       />
       <div className="relative z-10 ml-56">
@@ -37,9 +55,9 @@ const Homeslider = () => {
           transition={{ duration: 1.5, delay: 0.4 }}
         >
           <Link to={'/course'}>
-          <Button className="button">
-            Our Programs
-          </Button>
+            <Button className="button">
+              Our Programs
+            </Button>
           </Link>
         </motion.div>
       </div>
