@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaDumbbell } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -12,12 +11,34 @@ const navItems = [
 ];
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 70) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="absolute top-0 left-0 right-0 bg-transparent text-white p-4 shadow-md flex items-center justify-between z-10">
+    <header
+      className={`fixed top-0 left-0 right-0 z-10 p-4 shadow-md transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white bg-opacity-50 backdrop-blur-md text-black'
+          : 'bg-transparent text-white'
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between">
         <Link to={'/'}>
           <div className="flex items-center space-x-3 cursor-pointer">
-            <FaDumbbell className="text-5xl text-yellow-500" />
+            <FaDumbbell className={`text-5xl ${isScrolled ? 'text-yellow-500' : 'text-white'}`} />
             <h1 className="text-3xl font-bold tracking-tight">
               Iron
               <span className="text-yellow-500 text-4xl">X</span>
@@ -34,7 +55,9 @@ const Header = () => {
           ))}
         </nav>
         <button
-          className="bg-yellow-500 text-white text-xl border-2 border-white px-11 py-3 font-bold hover:bg-yellow-600 hover:text-gray-400 transition-colors duration-300"
+          className={`${
+            isScrolled ? 'bg-yellow-500 text-black' : 'bg-yellow-500 text-white'
+          } text-xl border-2 px-11 py-3 font-bold hover:bg-yellow-600 hover:text-gray-400 transition-colors duration-300`}
         >
           Contact Me
         </button>
