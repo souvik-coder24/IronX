@@ -47,7 +47,7 @@ const DietForm = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    const requiredFields = ['name', 'age', 'height', 'weight', 'gender', 'activityLevel', 'exercisePreferences'];
+    const requiredFields = ['name', 'age', 'height', 'weight', 'gender', 'activityLevel', 'exercisePreferences','Cooking Preferences','Goals'];
 
     requiredFields.forEach(field => {
       if (!formData[field]) {
@@ -205,13 +205,13 @@ Time Constraints: ${formData.timeConstraints}`;
             }, {
               label: 'Activity Level: *',
               name: 'activityLevel',
-              options: ['Select', 'Sedentary', 'Lightly active', 'Moderately active', 'Very active']
+              options: ['Lightly active', 'Moderately active', 'Very active']
             }, {
-              label: 'Goals:',
-              name: 'goals'
+              label: 'Goals: *',
+              options: ['Body Building', 'Fat Burning', 'Sporty Fitness']
             }, {
-              label: 'Exercise Preferences:',
-              name: 'exercisePreferences'
+              label: 'Exercise Preferences: *',
+              options: ['Body Weight', 'Dumbells and Machines', 'Band']
             }].map(field => renderInputField(field))}
 
           </div>
@@ -233,8 +233,8 @@ Time Constraints: ${formData.timeConstraints}`;
               label: 'Eating Habits:',
               name: 'eatingHabits'
             }, {
-              label: 'Cooking Preferences:',
-              name: 'cookingPreferences'
+              label: 'Cooking Preferences: *',
+              options: ['Vegeterian', 'Non-Vegeterian', 'Vegan']
             }, {
               label: 'Time Constraints:',
               name: 'timeConstraints'
